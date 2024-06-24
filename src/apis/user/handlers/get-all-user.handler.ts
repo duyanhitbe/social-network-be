@@ -1,6 +1,6 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { GetAllUserCommand } from '../commands/get-all-user.command';
-import { PrismaService } from '../../../modules/database/prisma.service';
+import { PrismaService } from '@prisma';
 
 @CommandHandler(GetAllUserCommand)
 export class GetAllUserHandler implements ICommandHandler<GetAllUserCommand> {

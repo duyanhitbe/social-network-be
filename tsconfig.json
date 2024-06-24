@@ -16,6 +16,15 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@prisma": ["src/modules/prisma/index"],
+      "@prisma/*": ["src/modules/prisma/*"],
+      "@jwt": ["src/modules/jwt/index"],
+      "@jwt/*": ["src/modules/jwt/*"],
+      "@graphql/*": ["src/modules/graphql/*"],
+      "@common": ["src/common/index"],
+      "@common/*": ["src/common/*"]
+    }
   }
 }

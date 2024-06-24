@@ -9,7 +9,20 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 			driver: ApolloDriver,
 			autoSchemaFile: true,
 			playground: false,
-			plugins: [ApolloServerPluginLandingPageLocalDefault()]
+			plugins: [ApolloServerPluginLandingPageLocalDefault()],
+			formatError: (error) => {
+				const originalError = error.extensions?.originalError as any;
+				if (!originalError) {
+					return {
+						message: error.message,
+						code: error.extensions?.code
+					};
+				}
+				return {
+					...originalError,
+					code: error.extensions.code
+				};
+			}
 		})
 	]
 })
